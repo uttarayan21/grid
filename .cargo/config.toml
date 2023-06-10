@@ -1,0 +1,25 @@
+[alias]
+lldb = ["with", "rust-lldb", "--", "run"]
+rr = ["run", "--release"]
+bb = ["build", "--release"]
+cc = ["clippy"]
+bc = ["criterion"]
+
+[net]
+git-fetch-with-cli = true
+
+[build]
+jobs = 20
+
+# [target.arm64-apple-darwin]
+# linker = "clang"
+# rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+# [target.aarch64-apple-darwin]
+# linker = "clang"
+# rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+[registries]
+ktra = { index = "https://github.com/uttarayan21/crates-io.git" }
+
+[target.x86_64-apple-darwin]
+rustflags=["-C", "link-arg=-mmacosx-version-min=10.13"]
